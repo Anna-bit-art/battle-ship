@@ -39,7 +39,7 @@ let model = {
             }
         }
         view.displayMiss(guess);
-        view.displayMessage('You missed!');
+        view.displayMessage('Miss!');
         return false;
     },
     isSunk: function (ship) {
@@ -132,7 +132,7 @@ let controller = {
             this.guesses++;
             let hit = model.fire(location);
             if (hit && model.shipSunk === model.numShip) {
-                view.displayMessage('You sunk all my battleships, in ' + this.guesses + ' guesses');
+                view.displayMessage('You sunk all my battleships in ' + this.guesses + ' guesses');
             }
         }
     }
@@ -153,6 +153,23 @@ function handleFireButton () {
     controller.processGuess(guess);
     guessInput.value = '';
 }
+
+
+function handleShowShips() {
+    for(let i = 0; i < model.numShip; i++) {
+        let ship = model.ships[i].locations;
+        for(let j = 0; j < ship.length; j++) {
+            let cell = document.getElementById(ship[j].toString());
+            cell.setAttribute('class', 'hit');
+            setTimeout(
+                () => cell.setAttribute('class', 'hide'),
+                1000
+            )
+        }
+    }
+}
+
+
 
 window.onload = init;
 

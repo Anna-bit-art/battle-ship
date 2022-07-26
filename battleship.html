@@ -21,7 +21,7 @@
             color: #fff;
             text-align: center;
             font-size: 2em;
-            margin-top: 30px;
+            margin-top: 50px;
         }
 
         table {
@@ -53,7 +53,20 @@
         .miss {
             background: url("image/miss.png") no-repeat center center;
         }
-
+        .hide {
+            background: none;
+        }
+        .showShips {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 9px 15px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid rgb(58 131 7);
+        }
     </style>
 </head>
 <body>
@@ -100,6 +113,7 @@
             <input type="text" id="guessInput" placeholder="A0">
             <input type="button" id="fireButton" value="Fire!">
         </form>
+        <button type="button" onclick={handleShowShips()} class="showShips">Cheat!</button>
     </div>
 
 <script src="battleship.js"></script>
